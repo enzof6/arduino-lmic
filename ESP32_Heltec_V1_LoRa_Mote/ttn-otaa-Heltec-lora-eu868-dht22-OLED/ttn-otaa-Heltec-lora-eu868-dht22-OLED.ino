@@ -15,6 +15,9 @@
  * to do whatever they want with them without any restriction,
  * including, but not limited to, copying, modification and redistribution.
  * NO WARRANTY OF ANY KIND IS PROVIDED.
+ *
+ *Modified by Darren Sherin to run on the ESP32 Heltec WiFi LoRa V1 20/11/18
+ *
  *******************************************************************************/
 #include <lmic.h>
 #include <hal/hal.h>
