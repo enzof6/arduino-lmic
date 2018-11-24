@@ -15,6 +15,9 @@
  * to do whatever they want with them without any restriction,
  * including, but not limited to, copying, modification and redistribution.
  * NO WARRANTY OF ANY KIND IS PROVIDED.
+ *
+ *Modified by Darren Sherin to run on the ESP32 Heltec WiFi LoRa Board V1
+ *
  *******************************************************************************/
 #include <lmic.h>
 #include <hal/hal.h>
@@ -32,17 +35,17 @@
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
 // 0x70.
-static const u1_t PROGMEM APPEUI[8] = { 0x2B, 0x46, 0x01, 0xD0, 0x7E, 0xD5, 0xB3, 0x70 };
+static const u1_t PROGMEM APPEUI[8] = { "YOUR APPEUI HERE" };
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = { 0x19, 0x84, 0x31, 0x79, 0x32, 0x32, 0x32, 0x34 };
+static const u1_t PROGMEM DEVEUI[8] = { "YOUR DEVEUI HERE" };
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from the TTN console can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = { 0x7F, 0xC7, 0xBD, 0x6F, 0x9F, 0x94, 0x29, 0xAF, 0x98, 0x06, 0x1C, 0x79, 0x96, 0xB8, 0xB0, 0x73 };
+static const u1_t PROGMEM APPKEY[16] = { "YOUR APPKEY HERE" };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
 // payload to send to TTN gateway
@@ -53,14 +56,14 @@ static osjob_t sendjob;
 // cycle limitations).
 const unsigned TX_INTERVAL = 30;
 
-// Pin mapping for Adafruit Feather M0 LoRa
+// Pin mapping for ESP32 Heltec WiFi LoRa Board V1
 const lmic_pinmap lmic_pins = {
     .nss = 18,
     .rxtx = LMIC_UNUSED_PIN,
     .rst = 14,
     .dio = {26, 33, 32},
     .rxtx_rx_active = 0,
-    .rssi_cal = 8,              // LBT cal for the Adafruit Feather M0 LoRa, in dB
+    .rssi_cal = 8,              // May not be correct for this board
     .spi_freq = 8000000,
 };
 
