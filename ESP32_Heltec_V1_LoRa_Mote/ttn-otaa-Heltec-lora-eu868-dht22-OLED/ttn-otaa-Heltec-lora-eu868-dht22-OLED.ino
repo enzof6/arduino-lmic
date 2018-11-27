@@ -49,7 +49,7 @@
 SSD1306 display(OLED_RST);
 
 #if (SSD1306_LCDHEIGHT != 64)
- #error("Height incorrect, please fix SSD1306.h!");
+ #error("Height incorrect, please fix ssd1306.h!");
 #endif
 
 // This EUI must be in little-endian format, so least-significant-byte
