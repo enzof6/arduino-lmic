@@ -288,7 +288,7 @@ void setup() {
     dht.begin();
     // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
     Wire.begin(OLED_SDA,OLED_SCL,100000);
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x64)
     Serial.println("OLED and DHT init'd");
 
     // Show image buffer on the display hardware.
