@@ -6,4 +6,4 @@ Work on this is still in progress and the above code is used in the Arduino IDE 
 
 Download ZIP and on an Windows machine go to Documents->Arduino and extract there. Build one of the two examples in the root of the extracted folder for ESP32 and upload to the board. 
 
-If you are a noob to this please wait for the how too before asking any questions.
+Full walk through is now up and ready for use at the above link. 28/11/2018.
